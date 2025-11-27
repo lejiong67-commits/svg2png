@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .box { fill:#f7f7f7; stroke:#333; stroke-width:2px; }
+      .title { font: bold 16px sans-serif; fill:#111; }
+      .label { font: 12px sans-serif; fill:#111; }
+      .pin { font: 11px monospace; fill:#111; }
+      .wire { stroke-width:4px; stroke-linecap:round; }
+      .gnd { stroke:#000; }
+      .v5 { stroke:#d62828; }   /* red */
+      .sda { stroke:#f4a261; }  /* orange */
+      .scl { stroke:#2a9d8f; }  /* teal/green */
+      .sig { stroke:#f2c94c; }  /* yellow for servo signal */
+      .btn { stroke:#6a4c93; }  /* purple for button lines */
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="20" y="28" class="title">Arduino Nano Feeders Wiring Diagram (彩色)</text>
+
+  <!-- Legend -->
+  <rect x="20" y="40" width="360" height="120" class="box" rx="8"/>
+  <text x="36" y="66" class="label">图例 / Legend:</text>
+  <line x1="36" y1="86" x2="76" y2="86" class="wire v5"/>
+  <text x="86" y="90" class="label">+5V (红)</text>
+
+  <line x1="36" y1="106" x2="76" y2="106" class="wire gnd"/>
+  <text x="86" y="110" class="label">GND (黑)</text>
+
+  <line x1="200" y1="86" x2="240" y2="86" class="wire sda"/>
+  <text x="250" y="90" class="label">SDA / I2C (橙)</text>
+
+  <line x1="200" y1="106" x2="240" y2="106" class="wire scl"/>
+  <text x="250" y="110" class="label">SCL / I2C (绿)</text>
+
+  <line x1="36" y1="126" x2="76" y2="126" class="wire sig"/>
+  <text x="86" y="130" class="label">Servo Signal (黄)</text>
+
+  <line x1="200" y1="126" x2="240" y2="126" class="wire btn"/>
+  <text x="250" y="130" class="label">Buttons (紫)</text>
+
+  <!-- Arduino Nano box -->
+  <rect x="420" y="60" width="300" height="220" class="box" rx="10"/>
+  <text x="580" y="80" text-anchor="middle" class="title">Arduino Nano</text>
+  <!-- Nano pins left -->
+  <text x="444" y="110" class="pin">D2  SET</text>
+  <text x="444" y="134" class="pin">D3  UP</text>
+  <text x="444" y="158" class="pin">D4  DOWN</text>
+  <text x="444" y="182" class="pin">D5  MANUAL</text>
+  <text x="444" y="206" class="pin">D6  BUZZ</text>
+  <!-- Nano pins right -->
+  <text x="680" y="110" class="pin" text-anchor="end">D9  SERVO</text>
+  <text x="680" y="140" class="pin" text-anchor="end">A4 SDA</text>
+  <text x="680" y="164" class="pin" text-anchor="end">A5 SCL</text>
+  <text x="680" y="188" class="pin" text-anchor="end">5V</text>
+  <text x="680" y="212" class="pin" text-anchor="end">GND</text>
+
+  <!-- DS3231 -->
+  <rect x="180" y="320" width="220" height="120" class="box" rx="8"/>
+  <text x="290" y="342" class="title" text-anchor="middle">DS3231 RTC (I2C)</text>
+  <text x="200" y="370" class="pin">VCC</text>
+  <text x="200" y="390" class="pin">GND</text>
+  <text x="200" y="410" class="pin">SDA</text>
+  <text x="200" y="430" class="pin">SCL</text>
+
+  <!-- OLED -->
+  <rect x="420" y="320" width="200" height="120" class="box" rx="8"/>
+  <text x="520" y="342" class="title" text-anchor="middle">OLED 0.96" (I2C)</text>
+  <text x="440" y="370" class="pin">VCC</text>
+  <text x="440" y="390" class="pin">GND</text>
+  <text x="440" y="410" class="pin">SDA</text>
+  <text x="440" y="430" class="pin">SCL</text>
+
+  <!-- Servo -->
+  <rect x="780" y="320" width="200" height="120" class="box" rx="8"/>
+  <text x="880" y="342" class="title" text-anchor="middle">舵机 (MG90S)</text>
+  <text x="798" y="370" class="pin">V+ (红)</text>
+  <text x="798" y="390" class="pin">GND (黑)</text>
+  <text x="798" y="410" class="pin">Signal (黄) → D9</text>
+
+  <!-- Buttons block -->
+  <rect x="780" y="60" width="200" height="140" class="box" rx="8"/>
+  <text x="880" y="80" class="title" text-anchor="middle">按键 / Buttons</text>
+  <text x="798" y="110" class="pin">SET → D2</text>
+  <text x="798" y="132" class="pin">UP  → D3</text>
+  <text x="798" y="154" class="pin">DOWN→ D4</text>
+  <text x="798" y="176" class="pin">MANUAL→ D5</text>
+
+  <!-- Buzzer -->
+  <rect x="420" y="420" width="200" height="60" class="box" rx="6"/>
+  <text x="520" y="440" class="title" text-anchor="middle">蜂鸣器 / Buzzer</text>
+  <text x="460" y="460" class="pin">+ → D6</text>
+  <text x="560" y="460" class="pin">- → GND</text>
+
+  <!-- TP4056 and Battery and Boost -->
+  <rect x="20" y="320" width="140" height="120" class="box" rx="8"/>
+  <text x="90" y="342" class="title" text-anchor="middle">TP4056 充电模块</text>
+  <text x="36" y="372" class="pin">IN+ IN- (USB)</text>
+  <text x="36" y="392" class="pin">B+ B- (电池)</text>
+
+  <rect x="20" y="460" width="140" height="120" class="box" rx="8"/>
+  <text x="90" y="482" class="title" text-anchor="middle">18650 电池 (1节)</text>
+  <text x="36" y="512" class="pin">+ 电池正极 → B+</text>
+  <text x="36" y="532" class="pin">- 电池负极 → B-</text>
+
+  <rect x="180" y="460" width="200" height="120" class="box" rx="8"/>
+  <text x="280" y="482" class="title" text-anchor="middle">5V 升压模块 (BOOST)</text>
+  <text x="200" y="512" class="pin">VIN+ → 电池 +</text>
+  <text x="200" y="532" class="pin">VIN- → 电池 -</text>
+  <text x="200" y="552" class="pin">VOUT+ → Arduino 5V</text>
+  <text x="200" y="572" class="pin">VOUT- → GND</text>
+
+  <!-- Wiring lines -->
+  <!-- V+ from BOOST to Arduino 5V and Servo V+ and RTC/OLED VCC -->
+  <path d="M380 208 L430 208" class="wire v5"/>
+  <path d="M430 208 L430 320" class="wire v5"/>
+  <path d="M430 320 L400 320" class="wire v5"/>
+  <path d="M400 320 L220 340" class="wire v5"/> <!-- to DS3231 VCC -->
+  <path d="M430 320 L520 320" class="wire v5"/> <!-- to OLED VCC -->
+  <path d="M430 208 L780 350" class="wire v5"/> <!-- to Servo V+ -->
+  <text x="392" y="200" class="label">VOUT+ (5V)</text>
+
+  <!-- GND common -->
+  <path d="M380 228 L430 228" class="wire gnd"/>
+  <path d="M430 228 L430 440" class="wire gnd"/>
+  <path d="M430 440 L400 440" class="wire gnd"/>
+  <path d="M400 440 L220 360" class="wire gnd"/> <!-- to DS3231 GND -->
+  <path d="M430 440 L520 440" class="wire gnd"/> <!-- to OLED GND -->
+  <path d="M430 440 L780 380" class="wire gnd"/> <!-- to Servo GND -->
+  <text x="392" y="220" class="label">GND (共地)</text>
+
+  <!-- I2C SDA (orange) -->
+  <path d="M680 142 L640 142" class="wire sda"/>
+  <path d="M640 142 L520 402" class="wire sda"/>
+  <path d="M520 402 L400 402" class="wire sda"/>
+  <path d="M400 402 L220 410" class="wire sda"/> <!-- to DS3231 SDA -->
+  <text x="640" y="132" class="label">SDA (A4)</text>
+
+  <!-- I2C SCL (green) -->
+  <path d="M680 166 L640 166" class="wire scl"/>
+  <path d="M640 166 L520 422" class="wire scl"/>
+  <path d="M520 422 L400 422" class="wire scl"/>
+  <path d="M400 422 L220 430" class="wire scl"/> <!-- to DS3231 SCL -->
+  <text x="640" y="156" class="label">SCL (A5)</text>
+
+  <!-- Servo signal (yellow) from D9 -->
+  <path d="M680 110 L740 110" class="wire sig"/>
+  <path d="M740 110 L780 350" class="wire sig"/>
+  <text x="720" y="100" class="label">Servo Signal (D9)</text>
+
+  <!-- Buttons (purple) to D2..D5 and to GND -->
+  <path d="M980 110 L760 110" class="wire btn"/>
+  <path d="M980 132 L760 132" class="wire btn"/>
+  <path d="M980 154 L760 154" class="wire btn"/>
+  <path d="M980 176 L760 176" class="wire btn"/>
+  <text x="980" y="98" class="label" text-anchor="end">Buttons → D2/D3/D4/D5</text>
+  <!-- Buttons other ends to GND -->
+  <path d="M760 110 L740 210" class="wire gnd" />
+  <path d="M760 132 L740 210" class="wire gnd" />
+  <path d="M760 154 L740 210" class="wire gnd" />
+  <path d="M760 176 L740 210" class="wire gnd" />
+
+  <!-- Buzzer D6 -->
+  <path d="M520 460 L560 460" class="wire v5"/>
+  <path d="M560 460 L680 460" class="wire gnd"/>
+  <text x="520" y="480" class="label">蜂鸣器 + → D6 , - → GND</text>
+
+  <!-- Power links: BOOST to Arduino 5V area -->
+  <path d="M380 560 L430 560" class="wire v5"/>
+  <path d="M430 560 L430 440" class="wire v5"/>
+
+  <!-- TP4056 to Battery -->
+  <path d="M120 400 L120 460" class="wire v5"/>
+  <text x="40" y="400" class="label">TP4056 B+ / B- ↔ 电池</text>
+
+  <!-- Notes -->
+  <rect x="20" y="600" width="1160" height="160" class="box" rx="8"/>
+  <text x="36" y="628" class="label">重要注意事项：</text>
+  <text x="36" y="648" class="label">1) 所有 GND 必须共地；2) 舵机电流峰值较高，确保电源能提供 ≥2A；3) 不要直接并联 TP4056 IN 与升压模块 VOUT（若不确定，优先使用外接 USB 5V 供电并让 TP4056 充电）；4) 在舵机电源处并联 470µF~1000µF 去耦电容以抑制瞬间电压降；5) 使用带保护的 18650 或加保护电路。</text>
+
+  <!-- Footer -->
+  <text x="20" y="780" class="label">文件：feeder_wiring.svg — 如果需要 PNG，请回复“要 PNG” 我会生成。</text>
+</svg> 
